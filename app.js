@@ -112,16 +112,24 @@ function addMealToDOM(meal){
 submit.addEventListener('submit', searchMeal);
 random.addEventListener('click', randomMeal);
 
+// mealsEl.addEventListener('click', e => {
+//    const mealInfo = e.path.find(item => {
+//       if(item.classList.contains('meal-info')){
+//          return item.classList;
+//       }else{
+//          return false;
+//       }
+//    });
+//   if(mealInfo){
+//      const mealID = mealInfo.getAttribute('data-mealID');
+//      getMealByID(mealID);
+//   }
+// });
+
 mealsEl.addEventListener('click', e => {
-   const mealInfo = e.path.find(item => {
-      if(item.classList.contains('meal-info')){
-         return item.classList;
-      }else{
-         return false;
-      }
-   });
-  if(mealInfo){
+   const mealInfo = e.target.closest('.meal-info');
+   if (mealInfo) {
      const mealID = mealInfo.getAttribute('data-mealID');
      getMealByID(mealID);
-  }
-});
+   }
+ });
